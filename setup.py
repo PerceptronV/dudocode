@@ -41,6 +41,13 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/PerceptronV/dudocode",
     packages=setuptools.find_packages(),
+    install_requires=[
+        'code',
+        'argparse',
+        'numpy',
+        'trilobyte',
+        'colorama',
+    ],
     entry_points={
         'console_scripts':[
             'dudo = dudocode.dudo:main'
