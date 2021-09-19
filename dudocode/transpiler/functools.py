@@ -456,8 +456,7 @@ def reformat_if_else(text):
     var_dict = {}
     text = tr([
         OptionalRepeatedBefore(Text("IF"), Space(), var_name="if-with-indent", var_dict=var_dict),
-        SequencePat([RepeatPat(NegPat(Flush()), var_name="conditions", var_dict=var_dict), Flush()]),
-        SequencePat([RepeatPat(NegPat(Flush())), Flush()]),
+        SequencePat([RepeatPat(NegPat(Flush()), var_name="conditions", var_dict=var_dict), Flush()])
     ], var_dict=var_dict).replace_all(text, [
         VariableConverter("if-with-indent", lower), VariableConverter("conditions"), TextConverter(":\n")
     ])
@@ -467,6 +466,15 @@ def reformat_if_else(text):
         OptionalRepeatedBefore(Text("ELSE"), Space(), repeat_var_name="indent", var_dict=var_dict)
     ], var_dict=var_dict).replace_all(text, [
         VariableConverter("indent", del_last2), TextConverter("else:")
+    ])
+
+    var_dict = {}
+    text = tr([
+        NegPat(AlphaNum(), var_name="preceding", var_dict=var_dict),
+        OptionalRepeatedAfter(Text("THEN"), NegPat(Flush()),
+                              repeat_var_name="stuff", repeat_var_dict=var_dict)
+    ], var_dict=var_dict).replace_all(text, [
+        VariableConverter("preceding"), TextConverter("  "), VariableConverter("stuff", strip)
     ])
 
     return text

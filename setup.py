@@ -33,7 +33,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="dudocode",
-    version="0.2",
+    version="0.3",
     author="PerceptronV",
     author_email="neutrinovs@gmail.com",
     description="A pseudocode-to-Python transpiler based on the format specified in CIE IGCSE (Syllabus 0478)",
