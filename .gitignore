@@ -1,0 +1,17 @@
+# Debugging
+debug/
+test.py
+
+# Workflow optimisations
+build.py
+
+# Packaging
+build/
+dist/
+dudocode.egg-info/
+
+# IDE files
+.idea/
+
+# Unstable updates
+dudocode/ide
