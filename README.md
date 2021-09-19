@@ -1,5 +1,5 @@
 # Dudocode
-This repository contains the source code for Dudocode, a pseudocode-to-Python transpiler based on the format specified in CIE IGCSE (Syllabus 0478).
+This repository contains the source code for Dudocode, a pseudocode-to-Python transpiler based on the format specified in CIE IGCSE (Syllabus 0478). It allows you to run pseudocode source files, as well as executing pseudocode interactively in the console.
 
 The pseudocode syntax is specified in [this PDF](./pseudocode_specification.pdf) (downloaded from the [official CIE IGCSE website](https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-computer-science-0478/)). **Dudocode supports for all features**, except for filestream operations.
 
