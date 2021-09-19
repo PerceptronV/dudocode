@@ -148,6 +148,7 @@ FUNCTION Factorial(Num:INTEGER) RETURNS INTEGER
         RETURN 1
       ELSE
         RETURN Num * Factorial(Num - 1)
+    ENDIF
 ENDFUNCTION
 
 INPUT Number
