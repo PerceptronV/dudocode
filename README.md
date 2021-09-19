@@ -15,12 +15,19 @@ Note that the arrow assignment operator (`←`) can be replaced with `<-` for ea
 ## Getting started
 
 1. Dudocode is built on top of Python. If you do not have Python, please download and install it [here](https://www.python.org/downloads/).
+
 2. Add your Python installation to PATH.
+
 3. To download and install the latest version of Dudocode, run
     ```shell
     pip install dudocode
     ```
+    
 4. Interact with the `dudo` CLI in terminal. See [documentation](#documentation) for help, or try out the examples in [demos](#demos).
+
+### Notepad++ Integration
+
+We have created a User Defined Language file to aid you in coding with pseudocode. Download [`notepadpp_udl_dudocode.xml`](./notepadpp_udl_dudocode.xml), and import it into Notepad via `Language -> Define your language... -> Import`. This language file supports syntax highlighting, code folding, and auto-completion for all of Dudocode's features. It's recognised file endings are `.ddo` and `.notcode`.
 
 ## Demos
 
@@ -170,7 +177,7 @@ Output:
 ----------
 
 ## Documentation
- 
+
 ### `dudo`
 Dudo is Dudocode's versatile CLI, allowing you to convert and run pseudocode source files. It also supports interactive pseudocode execution.
 
