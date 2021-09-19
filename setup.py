@@ -33,7 +33,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="dudocode",
-    version="0.0.1",
+    version="0.2",
     author="PerceptronV",
     author_email="neutrinovs@gmail.com",
     description="A pseudocode-to-Python transpiler based on the format specified in CIE IGCSE (Syllabus 0478)",
@@ -42,14 +42,13 @@ setuptools.setup(
     url="https://github.com/PerceptronV/dudocode",
     packages=setuptools.find_packages(),
     install_requires=[
-        'code',
         'argparse',
         'numpy',
         'trilobyte',
         'colorama',
     ],
     entry_points={
-        'console_scripts':[
+        'console_scripts': [
             'dudo = dudocode.dudo:main'
         ]
     },

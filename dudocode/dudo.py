@@ -26,12 +26,11 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 
 
-import os
 import code
 import argparse
 from dudocode import Transpiler
 
-VERSION = '0.0.1'
+VERSION = '0.2'
 COPYRIGHT_LONG = 'Copyright (c) 2021 SONG YIDING. All Rights Reserved.'
 COPYRIGHT_SHORT = 'Copyright (c) 2021 SONG YIDING'
 
