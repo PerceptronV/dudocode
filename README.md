@@ -18,7 +18,7 @@ Note that the arrow assignment operator (`←`) can be replaced with `<-` for ea
 
 2. Add your Python installation to PATH.
 
-3. To download and install the latest version of Dudocode, run
+3. Dudocode is available as a [PyPI package](https://pypi.org/project/dudocode/). To download and install the latest version of Dudocode, run
     ```shell
     pip install dudocode
     ```
