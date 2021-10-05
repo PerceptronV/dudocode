@@ -298,7 +298,7 @@ NEXT <identifier>
 REPEAT-UNTIL loop
 ```c++
 REPEAT
-<Statements>
+    <Statements>
 UNTIL <condition>
 ```
 
