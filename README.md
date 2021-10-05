@@ -5,6 +5,8 @@ The pseudocode syntax is specified in [this PDF](./pseudocode_specification.pdf)
 
 Note that the arrow assignment operator (`←`) can be replaced with `<-` for easier typing.
 
+Dudocode's transpilation workflow is heavily reliant on [trilobyte](https://github.com/PerceptronV/trilobyte). This is a custom text-pattern parsing engine which I built primarily for this project and for processing code. Nevertheless, it has a very general syntax and has a wide range of potential use cases. I decided to build Trilobyte not least because I was bored of Regex (I've seen enough transpiler projects out there that use this), but also because I thought it'll be fun (and it was). Trilobyte ended up using a custom 'keypoints'-based algorithm which I devised. There are still some bugs, but all the features used in Dudocode seems to be stable.
+
 **Contents**:
 * [Dudocode](#dudocode)
     * [Getting started](#getting-started)
@@ -27,7 +29,7 @@ Note that the arrow assignment operator (`←`) can be replaced with `<-` for ea
 
 ### Notepad++ Integration
 
-We have created a User Defined Language file to aid you in coding with pseudocode. Download [`notepadpp_udl_dudocode.xml`](./notepadpp_udl_dudocode.xml), and import it into Notepad via `Language -> Define your language... -> Import`. This language file supports syntax highlighting, code folding, and auto-completion for all of Dudocode's features. It's recognised file endings are `.ddo` and `.notcode`.
+I have created a User Defined Language file to aid you in coding with pseudocode. Download [`notepadpp_udl_dudocode.xml`](./notepadpp_udl_dudocode.xml), and import it into Notepad via `Language -> Define your language... -> Import`. This language file supports syntax highlighting, code folding, and auto-completion for all of Dudocode's features. It's recognised file endings are `.ddo` and `.notcode`.
 
 ## Demos
 
