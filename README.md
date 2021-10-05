@@ -5,7 +5,7 @@ The pseudocode syntax is specified in [this PDF](./pseudocode_specification.pdf)
 
 Note that the arrow assignment operator (`←`) can be replaced with `<-` for easier typing.
 
-Dudocode's transpilation workflow is heavily reliant on [trilobyte](https://github.com/PerceptronV/trilobyte). This is a custom text-pattern parsing engine which I built primarily for this project and for processing code. Nevertheless, it has a very general syntax and has a wide range of potential use cases. I decided to build Trilobyte not least because I was bored of Regex (I've seen enough transpiler projects out there that use this), but also because I thought it'll be fun (and it was). Trilobyte ended up using a custom 'keypoints'-based algorithm which I devised. There are still some bugs, but all the features used in Dudocode seems to be stable.
+Dudocode's transpilation workflow is heavily reliant on [trilobyte](https://github.com/PerceptronV/trilobyte). This is a custom text-pattern parsing engine which I built primarily for this project and for processing code. Nevertheless, it has a very general syntax and has a wide range of potential use cases. I decided to build Trilobyte not least because I was bored of Regex (I've seen enough transpiler projects out there that use this), but also because I thought it'll be fun (and it was). Trilobyte ended up using a custom 'keypoints'-based algorithm which I devised. There are still some bugs with Trilobyte, but all of its features used in Dudocode seem to be stable.
 
 **Contents**:
 * [Dudocode](#dudocode)
