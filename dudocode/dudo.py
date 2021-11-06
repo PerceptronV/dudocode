@@ -30,7 +30,7 @@ import code
 import argparse
 from dudocode import Transpiler
 
-VERSION = '0.3'
+VERSION = '0.4'
 COPYRIGHT_LONG = 'Copyright (c) 2021 SONG YIDING. All Rights Reserved.'
 COPYRIGHT_SHORT = 'Copyright (c) 2021 SONG YIDING'
 
