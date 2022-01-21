@@ -38,7 +38,7 @@ class _AnyType(object):
         self.specialised_val = self.value
 
     def __repr__(self):
-        return '<dudo.AnyType({}), specialised: {}>'.format(repr(self.value), self.specialised)
+        return '<dudo._AnyType({}), specialised: {}>'.format(repr(self.value), self.specialised)
 
     def __str__(self):
         return self.value
@@ -73,7 +73,7 @@ class _AnyType(object):
     def camouflage(self, other, strict=False):
         _name = type(other).__name__
         if strict and self.specialised:
-            if _name == 'AnyType':
+            if _name == '_AnyType':
                 if not other.specialised:
                     other_type = other.infer_type(other.value)
                     if self.type == float and other_type == int:
@@ -93,7 +93,7 @@ class _AnyType(object):
             self.set_type(classname_mappings[_name])
             return self.specialised_val, other
 
-        if _name == 'AnyType':
+        if _name == '_AnyType':
             self_type = self.infer_type(self.value)
             other_type = other.infer_type(other.value)
             if {self_type, other_type} == {float, int}:

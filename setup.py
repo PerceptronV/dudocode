@@ -27,13 +27,14 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
 import setuptools
+import dudocode
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="dudocode",
-    version="0.4.1",
+    version=dudocode.__version__,
     author="PerceptronV",
     author_email="neutrinovs@gmail.com",
     description="A pseudocode-to-Python transpiler based on the format specified in CIE IGCSE (Syllabus 0478)",
@@ -42,7 +43,6 @@ setuptools.setup(
     url="https://github.com/PerceptronV/dudocode",
     packages=setuptools.find_packages(),
     install_requires=[
-        'argparse',
         'numpy',
         'trilobyte',
         'colorama',

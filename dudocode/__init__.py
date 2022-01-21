@@ -30,3 +30,5 @@ import dudocode.utils
 import dudocode.objects
 import dudocode.transpiler
 from dudocode.transpiler.transpiler import Transpiler
+
+__version__ = "0.6"

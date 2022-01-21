@@ -28,9 +28,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import code
 import argparse
+import dudocode
 from dudocode import Transpiler
 
-VERSION = '0.4.1'
+VERSION = dudocode.__version__
 COPYRIGHT_LONG = 'Copyright (c) 2021 SONG YIDING. All Rights Reserved.'
 COPYRIGHT_SHORT = 'Copyright (c) 2021 SONG YIDING'
 
@@ -54,6 +55,7 @@ def main():
                                                           '(if not specified, this defaults to that of the input '
                                                           'file, but with `.py` as file extension)', default='')
     run_parser.add_argument('-q', '--quiet', help='does not run the transpiled Python program', action='store_true')
+    run_parser.add_argument('-w', '--wait', help='wait after running transpiled Python program', action='store_true')
     run_parser.add_argument('-v', '--verbose', help='print stupid comments while transpiling', action='store_true')
 
     args = parser.parse_args()
@@ -96,6 +98,9 @@ def main():
                 if args.verbose:
                     print('::< Executing source Dudocode... >::')
                 code.InteractiveInterpreter().runcode(pycode)
+
+                if args.wait:
+                    input("[:: Pseudocode execution complete. Press Enter to continue. ::]")
 
         except KeyboardInterrupt:
             print("\nUser terminated current Dudocode tasks")
