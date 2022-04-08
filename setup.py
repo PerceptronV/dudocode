@@ -27,7 +27,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
 import setuptools
-VERSION = "0.6.0"
+VERSION = "0.6.1"
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()

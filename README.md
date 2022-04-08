@@ -1,7 +1,7 @@
 # Dudocode
 This repository contains the source code for Dudocode, a pseudocode-to-Python transpiler based on the format specified in CIE IGCSE (Syllabus 0478). It allows you to run pseudocode source files, as well as executing pseudocode interactively in the console.
 
-The pseudocode syntax is specified in [this PDF](./pseudocode_specification.pdf) (downloaded from the [official CIE IGCSE website](https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-computer-science-0478/)). **Dudocode supports all of these documented features**, except for filestream operations.
+The pseudocode syntax is specified in [this PDF](./pseudocode_specification.pdf) (downloaded from the [official CIE IGCSE website](https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-computer-science-0478/)). **Dudocode supports all of these documented features!** Yep, finally filestream operations too following the v0.6 update.
 
 Note that the arrow assignment operator (`←`) can be replaced with `<-` for easier typing.
 
@@ -177,6 +177,23 @@ Output:
 ```
 -->
 
+### File Reading and Writing
+
+Suppose you have a file called `inp.txt`, and you wanna copy its contents to `out.txt`:
+
+Pseudocode:
+```c++
+OPENFILE inp.txt FOR READ
+READFILE inp.txt, Text
+CLOSEFILE inp.txt
+
+OUTPUT "Text from file: ", Text, "\n"
+
+OPENFILE out.txt FOR WRITE
+WRITEFILE out.txt, Text
+CLOSEFILE out.txt
+```
+
 ----------
 
 ## Documentation
@@ -329,4 +346,15 @@ ENDPROCEDURE
 FUNCTION <identifier>(<param1>:<datatype>, <param2>:<datatype>...) RETURNS <data type>
     <statements>
 ENDFUNCTION
+```
+
+### Filestream Operations
+```c++
+OPENFILE <filename> FOR READ
+READFILE <filename>, <variable>
+
+OPENFILE <filename> FOR WRITE
+WRITEFILE <filename>, <variable>
+
+CLOSEFILE <filename>
 ```
