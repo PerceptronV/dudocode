@@ -14,7 +14,7 @@ License: GNU General Public License Version 3
 Licensor: SONG YIDING
 
 Dudocode is a pseudocode-to-Python transpiler based on the format specified in CIE IGCSE (Syllabus 0478).
-Copyright (C) 2021  SONG YIDING
+Copyright (C) 2022  SONG YIDING
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -26,6 +26,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 
 
+import os
 import math
 import numpy as np
 
@@ -302,3 +303,29 @@ class _Array(object):
             arr = arr.__getitem__(self.get_index(key[dim], dim))
         arr.__setitem__(self.get_index(key[final_dim], final_dim), value)
         return value
+
+class _Filestream(object):
+    def __init__(self):
+        self.file_refs = {}
+
+    def safe_search(self, key):
+        if key not in self.file_refs:
+            raise KeyError("Oops, seems like <{}> has not been opened yet!".format(key))
+
+    def OPENFILE(self, fpath, mode):
+        if (not os.path.exists(fpath)) and mode == 'r':
+            raise ValueError("No file exists at <{}>!".format(fpath))
+        self.file_refs[fpath] = open(fpath, mode, encoding="utf-8")
+
+    def READFILE(self, fpath):
+        self.safe_search(fpath)
+        return self.file_refs[fpath].read()
+
+    def WRITEFILE(self, fpath, val):
+        self.safe_search(fpath)
+        self.file_refs[fpath].write(val)
+
+    def CLOSEFILE(self, fpath):
+        self.safe_search(fpath)
+        self.file_refs[fpath].close()
+        del self.file_refs[fpath]

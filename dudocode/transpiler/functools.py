@@ -14,7 +14,7 @@ License: GNU General Public License Version 3
 Licensor: SONG YIDING
 
 Dudocode is a pseudocode-to-Python transpiler based on the format specified in CIE IGCSE (Syllabus 0478).
-Copyright (C) 2021  SONG YIDING
+Copyright (C) 2022  SONG YIDING
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -431,6 +431,57 @@ def reformat_functions(text):
     ], var_dict=var_dict).replace_all(text, [
         TextConverter("def "),
         VariableConverter("remaining", strip), TextConverter(":")
+    ], allow_nested=False)
+
+    return text
+
+
+def reformat_fileIO(text):
+    var_dict = {}
+    text = tr([
+        Text('OPENFILE'), RepeatPat(Mono()),
+        RepeatPat(NegPat(Mono()), var_name="filename", var_dict=var_dict),
+        RepeatPat(Mono()), Text("FOR"), RepeatPat(Mono()),
+        RepeatPat(NegPat(Whitespace()), var_name="mode", var_dict=var_dict)
+    ], var_dict=var_dict).replace_all(text, [
+        TextConverter('_Fs.OPENFILE("'),
+        VariableConverter('filename'), TextConverter('", '),
+        VariableConverter('mode'), TextConverter(')')
+    ], allow_nested=False)
+
+    var_dict = {}
+    text = tr([
+        Text('READFILE'), RepeatPat(Mono()),
+        OptionalRepeatedAfter(
+            RepeatPat(NegPat(AltPat([Mono(), Text(",")])), var_name="filename", var_dict=var_dict), Mono()),
+        OptionalRepeatedAfter(Text(","), Mono()),
+        RepeatPat(NegPat(Whitespace()), var_name="var_name", var_dict=var_dict)
+    ], var_dict=var_dict).replace_all(text, [
+        VariableConverter('var_name'),
+        TextConverter(' = _Fs.READFILE("'),
+        VariableConverter('filename'), TextConverter('")'),
+    ], allow_nested=False)
+
+    var_dict = {}
+    text = tr([
+        Text('WRITEFILE'), RepeatPat(Mono()),
+        OptionalRepeatedAfter(
+            RepeatPat(NegPat(AltPat([Mono(), Text(",")])), var_name="filename", var_dict=var_dict), Mono()),
+        OptionalRepeatedAfter(Text(","), Mono()),
+        RepeatPat(NegPat(Whitespace()), var_name="var_name", var_dict=var_dict)
+    ], var_dict=var_dict).replace_all(text, [
+        TextConverter('_Fs.WRITEFILE("'),
+        VariableConverter('filename'), TextConverter('", '),
+        VariableConverter('var_name'), TextConverter(')')
+    ], allow_nested=False)
+
+    var_dict = {}
+    text = tr([
+        Text('CLOSEFILE'), RepeatPat(Mono()),
+        RepeatPat(NegPat(Whitespace()), var_name="filename", var_dict=var_dict)
+    ], var_dict=var_dict).replace_all(text, [
+        TextConverter('_Fs.CLOSEFILE("'),
+        VariableConverter('filename'), TextConverter('")')
     ], allow_nested=False)
 
     return text

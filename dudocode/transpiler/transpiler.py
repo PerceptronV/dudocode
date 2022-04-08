@@ -14,7 +14,7 @@ License: GNU General Public License Version 3
 Licensor: SONG YIDING
 
 Dudocode is a pseudocode-to-Python transpiler based on the format specified in CIE IGCSE (Syllabus 0478).
-Copyright (C) 2021  SONG YIDING
+Copyright (C) 2022  SONG YIDING
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -40,6 +40,7 @@ from dudocode.transpiler.functools import reformat_repeat_loop
 from dudocode.transpiler.functools import reformat_while_loop
 from dudocode.transpiler.functools import reformat_procedures
 from dudocode.transpiler.functools import reformat_functions
+from dudocode.transpiler.functools import reformat_fileIO
 
 # ============================================================
 # ============================================================
@@ -93,9 +94,11 @@ MISC_SWAP_BACKPADDED = {
 
 
 HEADER = """
+# ============================== Dudocode Artifacts ============================== #
 from dudocode.objects import *
-from dudocode.objects import _AnyType, _ArrayTemplateDummy, _Array
-\n
+from dudocode.objects import _AnyType, _ArrayTemplateDummy, _Array, _Filestream
+_Fs = _Filestream()
+# ================================================================================ #
 """
 
 
@@ -172,6 +175,9 @@ class Transpiler(object):
         if verbose:
             self.devprint("{}Transpiling INPUT statements...".format(self.trans_prog_head))
         proc = reformat_inputs(proc)
+        if verbose:
+            self.devprint("{}Transpiling FILE operations...".format(self.trans_prog_head))
+        proc = reformat_fileIO(proc)
 
         if verbose:
             self.devprint("{}Transpiling operators (2/2)...".format(self.trans_prog_head))

@@ -14,7 +14,7 @@ License: GNU General Public License Version 3
 Licensor: SONG YIDING
 
 Dudocode is a pseudocode-to-Python transpiler based on the format specified in CIE IGCSE (Syllabus 0478).
-Copyright (C) 2021  SONG YIDING
+Copyright (C) 2022  SONG YIDING
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -26,6 +26,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 
 
-from dudocode.objects.classes import _AnyType, _ArrayTemplateDummy, _Array
+from dudocode.objects.classes import _AnyType, _ArrayTemplateDummy, _Array, _Filestream
 from dudocode.objects.functions import DIV, MOD, LENGTH, LCASE, UCASE, SUBSTRING, ROUND, RANDOM, OUTPUT
-from dudocode.objects.macros import TRUE, FALSE, INTEGER, REAL, CHAR, STRING, BOOLEAN, ARRAY
+from dudocode.objects.macros import TRUE, FALSE, INTEGER, REAL, CHAR, STRING, BOOLEAN, ARRAY, READ, WRITE
