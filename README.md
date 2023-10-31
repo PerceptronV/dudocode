@@ -1,11 +1,11 @@
 # Dudocode
 This repository contains the source code for Dudocode, a pseudocode-to-Python transpiler based on the format specified in CIE IGCSE (Syllabus 0478). It allows you to run pseudocode source files, as well as executing pseudocode interactively in the console.
 
-The pseudocode syntax is specified in [this PDF](./pseudocode_specification.pdf) (downloaded from the [official CIE IGCSE website](https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-computer-science-0478/)). **Dudocode supports all of these documented features!** Yep, finally filestream operations too following the v0.6 update.
+The pseudocode syntax is specified in [this PDF](./pseudocode_specification.pdf) (downloaded from the [official CIE IGCSE website](https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-computer-science-0478/)). **Dudocode supports all of these documented features!** Yep, finally filestream operations too, following the v0.6 update.
 
 Note that the arrow assignment operator (`←`) can be replaced with `<-` for easier typing.
 
-Dudocode's transpilation workflow is heavily reliant on [trilobyte](https://github.com/PerceptronV/trilobyte). This is a custom text-pattern parsing engine which I built primarily for this project and for processing code. Nevertheless, it has a very general syntax and has a wide range of potential use cases. I decided to build Trilobyte not least because I was bored of Regex (I've seen enough transpiler projects out there that use this), but also because I thought it'll be fun (and it was). Trilobyte ended up using a custom 'keypoints'-based algorithm which I devised. There are still some bugs with Trilobyte, but all of its features used in Dudocode seem to be stable.
+Dudocode's transpilation workflow is heavily reliant on [trilobyte](https://github.com/PerceptronV/trilobyte). This is a custom text-pattern parsing engine which I built primarily for this project and for processing code. Nevertheless, it has a very general syntax and has a wide range of potential use cases. I decided to build Trilobyte not least because I was bored of Regex (I've seen enough transpiler projects out there that use this), but also because I thought it would be fun (and it was!). Trilobyte ended up using a custom 'keypoints'-based algorithm which I devised. There are still some bugs with Trilobyte, but all of its features used in Dudocode seem to be stable.
 
 **Contents**:
 * [Dudocode](#dudocode)
@@ -29,7 +29,7 @@ Dudocode's transpilation workflow is heavily reliant on [trilobyte](https://gith
 
 ### Notepad++ Integration
 
-I have created a User Defined Language file to aid you in coding with pseudocode. Download [`notepadpp_udl_dudocode.xml`](./notepadpp_udl_dudocode.xml), and import it into Notepad via `Language -> Define your language... -> Import`. This language file supports syntax highlighting, code folding, and auto-completion for all of Dudocode's features. It's recognised file endings are `.ddo` and `.notcode`.
+I have created a User Defined Language file to aid you in coding with pseudocode. Download [`notepadpp_udl_dudocode.xml`](./notepadpp_udl_dudocode.xml), and import it into Notepad via `Language -> Define your language... -> Import`. This language file supports syntax highlighting, code folding, and auto-completion for all of Dudocode's features. Its recognised file endings are `.ddo` and `.notcode`.
 
 ## Demos
 
